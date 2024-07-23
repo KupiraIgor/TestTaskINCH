@@ -96,7 +96,12 @@ const slides = ref([
       }
     }"
   >
-    <swiper-slide v-for="slide of slides" class="slide" :style="{ background: slide.color }">
+    <swiper-slide
+      v-for="(slide, idx) of slides"
+      :key="idx"
+      class="slide"
+      :style="{ background: slide.color }"
+    >
       <div class="slide__container">
         <img class="slide__dawn" src="/svg/dawn.svg" alt="" />
         <div class="slide__left">
@@ -107,7 +112,6 @@ const slides = ref([
             <p>{{ slide.subtitle_2 }}</p>
             <p>{{ slide.subtitle_3 }}</p>
           </div>
-
           <p class="slide__text-bottom">{{ slide.text_bottom }}</p>
         </div>
         <div class="slide__right">
@@ -251,7 +255,7 @@ const slides = ref([
     }
 
     &__subtitle {
-      margin-bottom: 0rem;
+      margin-bottom: 0;
       p {
         &:first-child {
           margin-left: 6.5rem;

@@ -49,12 +49,18 @@ const onSort = () => {
             class="blocks__radio"
             v-model="radio"
             v-for="item of radioButtons"
+            :key="item.id"
             :data="item"
             @click="onSort"
           />
         </div>
         <div v-if="sortItems" class="blocks__items">
-          <Block v-for="item of sortItems" :item="item" :class="{ _mix: radio === 3 }" />
+          <Block
+            v-for="(item, idx) of sortItems"
+            :item="item"
+            :key="idx"
+            :class="{ _mix: radio === 3 }"
+          />
         </div>
       </div>
     </div>

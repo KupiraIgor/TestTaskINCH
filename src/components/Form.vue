@@ -93,7 +93,12 @@ const onSubmit = async () => {
             :error="v$.organization.$errors.length"
           />
           <div class="form__radios">
-            <InputRadio v-model="formData.position" v-for="item of radioButtons" :data="item" />
+            <InputRadio
+              v-model="formData.position"
+              v-for="item of radioButtons"
+              :key="item.id"
+              :data="item"
+            />
           </div>
           <h2 class="form__title">ПОВІДОМЛЕННЯ</h2>
           <Input
